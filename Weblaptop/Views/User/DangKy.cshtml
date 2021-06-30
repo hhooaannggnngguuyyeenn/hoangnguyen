@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/_LayoutTrangChu.cshtml";
+}
+
+<div class="main">
+    <div class="content">
+        <div class="register_account">
+            <h3>Đăng Ký </h3>
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true)
+                <form>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+
+                                    <div><input placeholder="Ho Ten" type ="text" name="HoTen" />@ViewData["Loirong"]</div>
+                                    <div><input type="text" placeholder="Nhập Tài Khoản" name="TaiKhoan" >@ViewData["Loirong1"]</div>
+                                    <div><input type="text" placeholder="E-Mail" name="Mail" >@ViewData["Loirong2"]</div>
+                                    <div><input type="text" placeholder="Mật Khẩu" name="MatKhau" >@ViewData["Loirong3"]</div>
+                                </td>
+                                <td>
+                                    <div><input type="text" placeholder="Địa Chỉ" name="DiaChi">@ViewData["Loirong4"]</div>
+                                    <div><input type="text" placeholder="Số Điện Thoại" name="Sdt">@ViewData["Loirong5"]</div>
+                                    Ngày sinh:
+                                    <input type="date" name="Ngaysinh" /> <tr>@ViewData["Loirong6"]</tr>
+                                </td>
+                            </tr>
+                            <div class="search">
+                                <div><button class="grey" type="submit">Create Account</button></div>
+                            </div>
+                            <div class="clear"></div>
+                        </tbody>
+
+                    </table>
+                </form>
+            }
+        </div>
+    </div>
+
+    <div class="clear"></div>
+</div>
+ </d>
+</div>
+

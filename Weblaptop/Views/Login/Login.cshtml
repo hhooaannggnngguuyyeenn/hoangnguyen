@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutTrangChu.cshtml";
+}
+<div class="main">
+    <div class="content">
+        <div class="login_panel">
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true)
+                <h3>Đăng Nhập </h3>
+                <form action="hello" method="get" id="member">
+                    <div><input type="text" placeholder="Nhập Tài Khoản" name="TaiKhoan"></div>
+                    <div><input type="text" placeholder="Nhập Mật Khẩu" name="MatKhau"></div>
+                    <div class="search">
+                        <div><button class="grey" type="submit" >Đăng nhập </button></div>
+                    </div>
+                </form>
+            }
+
+        </div>
+        <div class="clear"></div>
+    </div>
+    </d>
+</div>
