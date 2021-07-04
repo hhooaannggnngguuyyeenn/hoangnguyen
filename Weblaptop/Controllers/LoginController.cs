@@ -21,15 +21,15 @@ namespace Weblaptop.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult DangNhap(FormCollection frm)
+        public ActionResult Login(FormCollection frm)
         {
             var tendn = frm["TaiKhoan"];
             var matkhau = frm["MatKhau"];
-            if (string.IsNullOrEmpty(tendn))
+            if (String.IsNullOrEmpty(tendn))
             {
                 ViewData["loi1"] = "Phải nhập tài khoản";
             }
-            else if (string.IsNullOrEmpty(matkhau))
+            else if (String.IsNullOrEmpty(matkhau))
             {
                 ViewData["loi2"] = "Phải nhập mật khẩu";
             }
@@ -38,13 +38,18 @@ namespace Weblaptop.Controllers
                 KhachHang kh = db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == tendn && n.MatKhau == matkhau);
                 if (kh != null)
                 {
-                    ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";
-                    Session["TaiKhoan"] = kh;
+                    Session["TaiKhoan"] = kh.HoTen.ToString();
+                    return RedirectToAction("Index", "TrangChu");
                 }
                 else
                     ViewBag.Thongbao = "Tài khoản hoặc mật khẩu không đúng";
             }
-            return this.Index();
+            return RedirectToAction("Index","TrangChu");
+        }
+        public ActionResult LogOut()
+        {
+            Session.Clear();
+            return RedirectToAction("Index", "TrangChu");
         }
     }
 }

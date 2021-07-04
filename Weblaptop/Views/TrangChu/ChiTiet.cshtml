@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "ChiTietSP";
+    Layout = "~/Views/Shared/_LayoutTrangChu.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "SP";
+    Layout = "~/Views/Shared/_LayoutTrangChu.cshtml";
+}
+
+<div class="section group">
+    <div class="cont-desc span_1_of_2">
+        <div class="grid images_3_of_2">
+            <img src="~/Content/images/@Model.Anh" alt="" />
+        </div>
+        <div class="desc span_3_of_2">
+            <h2>@Model.TenTB</h2>
+            <p>@Model.Mota</p>
+            <div class="price">
+                <p><span class="price">@String.Format("{0:0,0 VNĐ}", Model.GiaBan)</span></p>
+            </div>
+            <div class="available">
+                <div class="add-cart">
+                    <div class="button"><span><a href="#">Add to Cart</a></span></div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

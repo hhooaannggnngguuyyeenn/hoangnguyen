@@ -67,6 +67,7 @@ namespace Weblaptop.Controllers
                 kh.DiaChiKH = diachi;
                 kh.Email = email;
                 kh.DienThoaiKH = Sdt;
+                //var ngaysinh = String.Format()
                 kh.NgaySinh = DateTime.Parse(ngaysinh);
                 db.KhachHangs.InsertOnSubmit(kh);
                 db.SubmitChanges();

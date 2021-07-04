@@ -1,0 +1,5 @@
+﻿@model IEnumerable<Weblaptop.Models.ThuongHieu>
+@foreach (var item in Model)
+{
+    <li><a href="@Url.Action("SP","TrangChu", new { id = item.MaTH })">@item.TenTH</a></li>
+}
