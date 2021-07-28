@@ -5,11 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using Weblaptop.Models;
 
+
 namespace Weblaptop.Controllers
 {
     public class SPtheothuonghieuController : Controller
     {
-        dbQLBanHangDataContext db = new dbQLBanHangDataContext();
+        Model1 db = new Model1();
 
         // GET: SPtheothuonghieu
         public ActionResult Index()
@@ -18,7 +19,7 @@ namespace Weblaptop.Controllers
         }
         public ActionResult TH()
         {
-            var thuonghieu = from s in db.ThuongHieus select s;
+            var thuonghieu = from s in db.ThuongHieux select s;
             return PartialView(thuonghieu);
         }
 

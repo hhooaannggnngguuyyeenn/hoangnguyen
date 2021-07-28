@@ -1,0 +1,75 @@
+﻿@model Weblaptop.Models.ThietBi
+
+@{
+    ViewBag.Title = "ChitietTB";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ChitietTB</h2>
+
+<div>
+    <h4>ThietBi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+          Tên Thiết Bị
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTB)
+        </dd>
+
+        <dt>
+          Giá bán
+        </dt>
+
+        <dd>
+            @String.Format("{0:0,0}", Model.GiaBan) VNĐ
+        </dd>
+
+        <dt>
+           Mô tả:
+        </dt>
+
+        <dd style="width:600px;text-align:justify">
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+        <dt>
+          Ảnh 
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/Content/images/"+ Model.Anh )" style="width:100px" />
+        </dd>
+
+        <dt>
+           Ngày Cập Nhật
+        </dt>
+
+        <dd>
+           @String.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat)
+        </dd>
+
+        <dt>
+           Số lượng tồn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoluongTon)
+        </dd>
+
+        <dt>
+            Mã Thương Hiệu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaTH)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { @id = Model.MaTB }) |
+    @Html.ActionLink("Back to List", "TB")
+</p>

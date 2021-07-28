@@ -5,11 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using Weblaptop.Models;
 
+
 namespace Weblaptop.Controllers
 {
     public class UserController : Controller
     {
-        dbQLBanHangDataContext db = new dbQLBanHangDataContext();
+       Model1 db = new Model1();
         // GET: User
         public ActionResult Index()
         {
@@ -69,8 +70,8 @@ namespace Weblaptop.Controllers
                 kh.DienThoaiKH = Sdt;
                 //var ngaysinh = String.Format()
                 kh.NgaySinh = DateTime.Parse(ngaysinh);
-                db.KhachHangs.InsertOnSubmit(kh);
-                db.SubmitChanges();
+                db.KhachHangs.Add(kh);
+                db.SaveChanges();
             }
             return this.DangKy();
         }

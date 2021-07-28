@@ -9,7 +9,7 @@ namespace Weblaptop.Controllers
 {
     public class TrangChuController : Controller
     {
-        dbQLBanHangDataContext db = new dbQLBanHangDataContext();
+        Model1 db = new Model1();
         // GET: TrangChu
         public ActionResult Index()
         {
@@ -18,11 +18,13 @@ namespace Weblaptop.Controllers
         }
         public ActionResult ChiTiet(int id)
         {
-            var tb = from s in db.ThietBis
-                     where s.MaTB == id
-                     select s;
 
-            return View(tb.Single());
+            var tb = db.ThietBis.FirstOrDefault(p => p.MaTB == id);
+            //from s in db.ThietBi s
+            //         where s.MaTB == id
+            //         select s;
+
+            return View(tb);
         }
 
         public ActionResult SP(int id)

@@ -14,7 +14,7 @@
     <link href='//fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body >
     <div class="wrap">
         <div class="header">
             <div class="header_top">
@@ -27,11 +27,6 @@
                             <input type="text" value="Tìm kiếm sản phẩm" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tìm kiếm sản phẩm';}"><input type="submit" value="TÌM">
                         </form>
                     </div>
-
-                    @*<div class="login">
-                       @Html.ActionLink("Login","Login","Login")
-                        <span><a href="#"><img src="~/Content/images/login.png" alt="" title="login" /></a></span>
-                    </div>*@
                     <div class="clear"></div>
                 </div>
                 <div class="clear"></div>
@@ -48,9 +43,6 @@
                                 <div class="nag-mother-list">
                                     <div class="navg-drop-main">
                                         <div class="nav-drop">
-                                            @*<li><a href="products.html">ASUS Brand</a></li>
-                            <li><a href="products.html">HP </a></li>
-                            <li><a href="products.html">MacBook</a></li>*@
                                             @Html.Action("TH", "SPtheothuonghieu")
 
                                         </div>
@@ -61,23 +53,11 @@
                                 </div>
                             </ul>
                         </li>
-                        @*<li>
-            <a href="products.html">Sản Phẩm</a>
-            <ul class="sub-menu list-unstyled sub-menu2">
-                <div class="navg-drop-main">
-                    <div class="nav-drop nav-top-brand">
-                        <li><a href="products.html">Laptop Gaming</a></li>
-                        <li><a href="products.html">Laptop Văn Phòng</a></li>
-                        <li><a href="products.html">Laptop Station</a></li>
-
-
-                    </div>
-                </div>
-            </ul>
-        </li>*@
-                        <li><a href="faq.html">Dịch Vụ</a></li>
-                        <li> @Html.ActionLink("Thông Tin", "ThongTin", "ThongTin")</></li>
-                        
+                        <li><a href="#">Dịch Vụ</a></li>
+                        <li> @Html.ActionLink("Thông Tin", "ThongTin", "ThongTin")</li>
+                        <li>
+                           @Html.ActionLink("Giỏ Hàng","Getcart","Giohang")
+                        </li>
 
                         @if (Session["TaiKhoan"] == null)
                         {
@@ -88,7 +68,7 @@
                         else
                         {
                             <li style="float:right;"><a>Hello @Session["TaiKhoan"]</a></li>
-                            <li style="float:right;">@Html.ActionLink("Cút","LogOut","Login")</li>
+                            <li style="float:right;">@Html.ActionLink("Thoát","LogOut","Login")</li>
                         }
                         <div class="clear"> </div>
                     </ul>
@@ -108,7 +88,7 @@
                         <h4>Information</h4>
                         <ul>
                             <li><a href=""><span>@Html.ActionLink("Thông Tin", "ThongTin", "ThongTin")</span></a></li>
-                            <li><a href=""><span>@Html.ActionLink("Liên Hệ","LienHe","LienHe")</span></a></li>
+                            <li><a href=""><span>@Html.ActionLink("Liên Hệ", "LienHe", "LienHe")</span></a></li>
                         </ul>
                     </div>
 
@@ -128,35 +108,18 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="col_1_of_4 span_1_of_4">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.1250520425333!2d106.71230301433687!3d10.801733161680872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528a459cb43ab%3A0x6c3d29d370b52a7e!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2jhu4cgVFAuSENN!5e0!3m2!1svi!2s!4v1627369096612!5m2!1svi!2s" width="600" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
                 </div>
                 <div class="copy_right">
                     <p>&copy; 2021 HVH Store. All Rights Reserved | Design by <a href="https://www.facebook.com/biocschos">HVH Team</a></p>
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
         <script type="text/javascript">
 		$(document).ready(function() {
-			/*
-			var defaults = {
-	  			containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear'
-	 		};
-			*/
-
 			$().UItoTop({ easingType: 'easeOutQuart' });
-
 		});
         </script>
         <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
@@ -175,6 +138,6 @@
 								  });
 								});
         </script>
-</body>
+</bodystyle="font-family:'Times>
 </html>
 

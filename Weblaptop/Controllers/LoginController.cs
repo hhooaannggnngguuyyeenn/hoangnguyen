@@ -5,11 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using Weblaptop.Models;
 
+
 namespace Weblaptop.Controllers
 {
     public class LoginController : Controller
     {
-        dbQLBanHangDataContext db = new dbQLBanHangDataContext();
+        Model1 db = new Model1();
         // GET: Login
         public ActionResult Index()
         {
@@ -35,10 +36,11 @@ namespace Weblaptop.Controllers
             }
             else
             {
-                KhachHang kh = db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == tendn && n.MatKhau == matkhau);
+                KhachHang kh = db.KhachHangs.FirstOrDefault(n => n.TaiKhoan == tendn && n.MatKhau == matkhau);
                 if (kh != null)
                 {
                     Session["TaiKhoan"] = kh.HoTen.ToString();
+                    Session["KH"] = kh;
                     return RedirectToAction("Index", "TrangChu");
                 }
                 else

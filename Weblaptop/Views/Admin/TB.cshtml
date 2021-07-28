@@ -1,0 +1,92 @@
+﻿@using Weblaptop.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Weblaptop.Models.ThietBi>
+@helper Truncate(string input, int length)
+   {
+        if(input.Length < length)
+            { 
+        @input
+        }
+        else
+      {
+        @input.Substring(0,length)<text>....</text>
+        }
+}
+
+
+
+@{
+    ViewBag.Title = "TB";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thiết Bị Của Cửa Hàng</h2>
+
+<p>
+    @Html.ActionLink("Thêm Mới Thiết bị", "ThemmoiTB")
+</p>
+<table class="table" border="1">
+    <tr>
+        <th style="width:200px">
+            Tên Thiết Bị
+        </th>
+        <th style="width:100px">
+            Giá Bán
+        </th>
+        <th style="width:300px">
+            Mô Tả
+        </th>
+        <th style="width:120px">
+            Ảnh
+        </th>
+        <th style="width:150px">
+            Ngày Cập Nhật
+        </th>
+        <th style="width:150px">
+            Số Lượng Tồn
+        </th>
+        <th style="width:150px">
+            Mã Thương Hiệu
+        </th>
+        <th style="width:200px;text-align:center"> Tác Vụ </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenTB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaBan)
+            </td>
+            <td>
+               @Truncate(item.Mota, 50)
+            </td>
+            <td>
+                <img src ="@Url.Content("~/Content/images/"+ item.Anh )" style="width:100px"/> 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayCapNhat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoluongTon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaTH)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "SuaTB", new { id = item.MaTB }) |
+                @Html.ActionLink("Chi Tiết", "ChitietTB", new { id = item.MaTB }) |
+                @Html.ActionLink("Xóa ", "XoaTB", new { id = item.MaTB })
+            </td>
+        </tr>
+    }
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+<div class="page-no">
+    <p>
+       @Html.PagedListPager(Model, page => Url.Action("TB", new { page = page}))
+        
+    </p>
+</div>
